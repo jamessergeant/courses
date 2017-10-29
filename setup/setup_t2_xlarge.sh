@@ -10,6 +10,8 @@ elif [ $region = "eu-west-1" ]; then
    export ami="ami-9e1a35ed" # Ireland
 elif [ $region = "us-east-1" ]; then
   export ami="ami-9c5b438b" # Virginia
+elif [ $region = "ap-southeast-2" ]; then
+  export ami="ami-985bb9fa" # Sydney
 else
   echo "Only us-west-2 (Oregon), eu-west-1 (Ireland), and us-east-1 (Virginia) are currently supported"
   exit 1

@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-# Configure a p2.xlarge instance
+# Configure a t2.xlarge instance
 
 # get the correct ami
 export region=$(aws configure get region)
 if [ $region = "us-west-2" ]; then
-   export ami="ami-bc508adc" # Oregon
+   export ami="ami-f8fd5998" # Oregon
 elif [ $region = "eu-west-1" ]; then
-   export ami="ami-b43d1ec7" # Ireland
+   export ami="ami-9e1a35ed" # Ireland
 elif [ $region = "us-east-1" ]; then
-  export ami="ami-31ecfb26" # Virginia
+  export ami="ami-9c5b438b" # Virginia
 elif [ $region = "ap-southeast-2" ]; then
   export ami="ami-985bb9fa" # Sydney
 else
@@ -17,6 +17,6 @@ else
   exit 1
 fi
 
-export instanceType="p2.xlarge"
+export instanceType="t2.micro"
 
 . $(dirname "$0")/setup_instance.sh
