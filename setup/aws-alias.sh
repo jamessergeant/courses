@@ -4,7 +4,7 @@ alias aws-get-t2-xlarge='export instanceId=`aws ec2 describe-instances --filters
 alias aws-start='aws ec2 start-instances --instance-ids $instanceId && aws ec2 wait instance-running --instance-ids $instanceId && export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$instanceId" --query "Reservations[0].Instances[0].PublicIpAddress"` && echo $instanceIp'
 alias aws-ip='export instanceIp=`aws ec2 describe-instances --filters "Name=instance-id,Values=$instanceId" --query "Reservations[0].Instances[0].PublicIpAddress"` && echo $instanceIp'
 alias aws-ssh-t2-micro='aws-get-t2-micro && export instanceUrl=$(aws ec2 describe-instances --instance-ids $instanceId --query "Reservations[0].Instances[0].PublicDnsName" --output text) && ssh -i /home/james/.ssh/aws-key-fast-ai.pem ubuntu@$instanceUrl'
-alias aws-ssh-t2-xlarge='aws-get-t2-micro && export instanceUrl=$(aws ec2 describe-instances --instance-ids $instanceId --query "Reservations[0].Instances[0].PublicDnsName" --output text) && ssh -i /home/james/.ssh/aws-key-fast-ai.pem ubuntu@$instanceUrl'
+alias aws-ssh-t2-xlarge='aws-get-t2-xlarge && export instanceUrl=$(aws ec2 describe-instances --instance-ids $instanceId --query "Reservations[0].Instances[0].PublicDnsName" --output text) && ssh -i /home/james/.ssh/aws-key-fast-ai.pem ubuntu@$instanceUrl'
 alias aws-ssh-p2='aws-get-t2-micro && export instanceUrl=$(aws ec2 describe-instances --instance-ids $instanceId --query "Reservations[0].Instances[0].PublicDnsName" --output text) && ssh -i /home/james/.ssh/aws-key-fast-ai.pem ubuntu@$instanceUrl'
 alias aws-stop='aws ec2 stop-instances --instance-ids $instanceId'
 alias aws-state='aws ec2 describe-instances --instance-ids $instanceId --query "Reservations[0].Instances[0].State.Name"'
