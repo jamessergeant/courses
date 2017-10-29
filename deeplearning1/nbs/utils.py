@@ -1,6 +1,6 @@
 from __future__ import division,print_function
 import math, os, json, sys, re
-import cPickle as pickle
+import _pickle as pickle
 from glob import glob
 import numpy as np
 from matplotlib import pyplot as plt
@@ -39,7 +39,7 @@ from keras.models import Sequential, Model
 from keras.layers import Input, Embedding, Reshape, merge, LSTM, Bidirectional
 from keras.layers import TimeDistributed, Activation, SimpleRNN, GRU
 from keras.layers.core import Flatten, Dense, Dropout, Lambda
-from keras.regularizers import l2, activity_l2, l1, activity_l1
+from keras.regularizers import l2, l1
 from keras.layers.normalization import BatchNormalization
 from keras.optimizers import SGD, RMSprop, Adam
 from keras.utils.layer_utils import layer_from_config
